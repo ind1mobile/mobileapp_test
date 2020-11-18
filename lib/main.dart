@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//hanaoka
+//hanaoka->hoshino
 void main() {
   runApp(MyApp());
 }
