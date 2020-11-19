@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Footer.dart';
 
 class Search extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _SearchState extends State<Search> {
           },
         ),
       ),
+      bottomNavigationBar: Footer(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Footer.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _ProfileState extends State<Profile> {
           },
         ),
       ),
+      bottomNavigationBar: Footer(),
     );
   }
 }

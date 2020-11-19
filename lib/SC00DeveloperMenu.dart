@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Footer.dart';
 
 class DeveloperMenu extends StatefulWidget {
   @override
@@ -54,6 +55,7 @@ class _DeveloperMenuState extends State<DeveloperMenu> {
           ]
         ),
       ),
+      bottomNavigationBar: Footer(),
     );
   }
 }

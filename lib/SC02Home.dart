@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Footer.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _HomeState extends State<Home> {
           },
         ),
       ),
+      bottomNavigationBar: Footer(),
     );
   }
 }
