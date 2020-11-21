@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
   @override
+  final primaryColor = const Color(0xff2295B7);
   _LoginState createState() => new _LoginState();
 }
 
@@ -11,6 +12,7 @@ class _LoginState extends State<Login> {
     return new Scaffold(
       appBar: AppBar(
         title: Text("SC01 ログイン画面"),
+        backgroundColor: widget.primaryColor,
       ),
       body: new Center(
         child: new Form(

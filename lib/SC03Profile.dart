@@ -3,6 +3,7 @@ import 'Footer.dart';
 
 class Profile extends StatefulWidget {
   @override
+  final primaryColor = const Color(0xff2295B7);
   _ProfileState createState() => new _ProfileState();
 }
 
@@ -13,6 +14,7 @@ class _ProfileState extends State<Profile> {
     return new Scaffold(
       appBar: AppBar(
         title: Text("SC03 プロフィール照会画面"),
+        backgroundColor: widget.primaryColor,
       ),
       body: new Center(
         child: new RaisedButton(

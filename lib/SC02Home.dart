@@ -3,6 +3,7 @@ import 'Footer.dart';
 
 class Home extends StatefulWidget {
   @override
+  final primaryColor = const Color(0xff2295B7);
   _HomeState createState() => new _HomeState();
 }
 
@@ -13,6 +14,7 @@ class _HomeState extends State<Home> {
     return new Scaffold(
       appBar: AppBar(
         title: Text("SC02 ホーム画面"),
+        backgroundColor: widget.primaryColor,
       ),
       body: new Center(
         child: new RaisedButton(

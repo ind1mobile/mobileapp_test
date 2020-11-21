@@ -3,6 +3,7 @@ import 'Footer.dart';
 
 class Mypage extends StatefulWidget {
   @override
+  final primaryColor = const Color(0xff2295B7);
   _MypageState createState() => new _MypageState();
 }
 
@@ -13,6 +14,7 @@ class _MypageState extends State<Mypage> {
     return new Scaffold(
       appBar: AppBar(
         title: Text("SC05 マイページ画面"),
+        backgroundColor: widget.primaryColor,
       ),
       body: new Center(
         child: new RaisedButton(

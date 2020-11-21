@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Logout extends StatefulWidget {
   @override
   _LogoutState createState() => new _LogoutState();
+  final primaryColor = const Color(0xff2295B7);
 }
 
 class _LogoutState extends State<Logout> {
@@ -12,6 +13,7 @@ class _LogoutState extends State<Logout> {
     return new Scaffold(
       appBar: AppBar(
         title: Text("SC06 ログアウト完了画面"),
+        backgroundColor: widget.primaryColor,
       ),
       body: new Center(
         child: new RaisedButton(
