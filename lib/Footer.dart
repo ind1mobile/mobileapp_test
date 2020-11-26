@@ -37,9 +37,15 @@ class _Footer extends State<Footer> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.favorite , color: Colors.white,),
+            icon: Icon(Icons.settings , color: Colors.white,),
             onPressed: () {
               Navigator.of(context).pushNamed("/DeveloperMenu");
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.logout , color: Colors.white,),
+            onPressed: () {
+              Navigator.of(context).pushNamed("/Logout");
             },
           ),
         ],

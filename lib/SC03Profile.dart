@@ -1,89 +1,80 @@
 import 'package:flutter/material.dart';
 import 'Footer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 
-class Profile extends StatefulWidget {
-  @override
+class Profile extends StatelessWidget {
   final primaryColor = const Color(0xff2295B7);
+  final String fname;
+  final String lname;
+  final String email;
+  final String desc;
+  final String image;
+  const Profile({
+    Key key,
+    this.fname,
+    this.lname,
+    this.email,
+    this.desc,
+    this.image,
+  }) : super(key: key);
 
-  _ProfileState createState() => new _ProfileState();
-}
 
-class _ProfileState extends State<Profile> {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
         title: Text("SC03 プロフィール照会画面"),
-        backgroundColor: widget.primaryColor,
+        backgroundColor: primaryColor,
       ),
-      /*body: new Center(
-        child: new RaisedButton(
-          child: const Text('開発者メニューへ'),
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed("/DeveloperMenu");
-          },
+      body: new Center(
+        child: new Column(
+          children: <Widget>[
+            Container(height: 20,),
+            Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                border: Border.all(color: Color(0xff2295B7),width: 5,),
+                image: DecorationImage(
+                  image: AssetImage(image),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Container(height: 20,),
+            Text('$fname'+' '+'$lname',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.message , color: primaryColor,),
+                ),
+                IconButton(
+                  icon: Icon(Icons.mail_outline , color: primaryColor,),
+                ),
+                IconButton(
+                  icon: Icon(Icons.phone , color: primaryColor,),
+                ),
+                IconButton(
+                  icon: Icon(Icons.info_outline , color: primaryColor,),
+                ),
+              ],
+            ),
+            Text('email : '+'$email',
+              style: TextStyle(fontSize: 20.0),
+            ),
+            Container(height: 20,),
+            Text('$desc'),
+            //_buildBody(context),
+          ],
         ),
       ),
-      */
-      body: _buildBody(context),
-
       bottomNavigationBar: Footer(),
     );
   }
-}
-
-Widget _buildBody(BuildContext context) {
-  return StreamBuilder<QuerySnapshot>(
-    stream: Firestore.instance.collection('members').snapshots(),
-    builder: (context, snapshot) {
-      if (!snapshot.hasData) return LinearProgressIndicator();
-      return _buildList(context, snapshot.data.documents);
-    },
-  );
-}
-
-
-
-Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
-  return ListView(
-    padding: const EdgeInsets.only(top: 20.0),
-    children: snapshot.map((data) => _buildListItem(context, data)).toList(),
-  );
-}
-
-Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
-  final record = Record.fromSnapshot(data);
-
-  return Padding(
-    key: ValueKey(record.fname),
-    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-    child: Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(5.0),
-      ),
-      child: ListTile(
-        title: Text(record.fname),
-        trailing: Text(record.lname),
-      ),
-    ),
-  );
-}
-
-class Record {
-  final String fname;
-  final String lname;
-  final DocumentReference reference;
-
-  Record.fromMap(Map<String, dynamic> map, {this.reference})
-      : assert(map['fname'] != null),
-        assert(map['lname'] != null),
-        fname = map['fname'],
-        lname = map['lname'];
-
-  Record.fromSnapshot(DocumentSnapshot snapshot)
-      : this.fromMap(snapshot.data, reference: snapshot.reference);
-
 }
