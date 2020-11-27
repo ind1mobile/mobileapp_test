@@ -18,6 +18,11 @@ class _LogoutState extends State<Logout> {
       body: new Center(
         child: new RaisedButton(
           child: const Text('ログイン画面へ戻る'),
+          color: widget.primaryColor,
+          textColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
           onPressed: () {
             Navigator.of(context).pushReplacementNamed("/");
           },

@@ -22,7 +22,7 @@ class _MypageState extends State<Mypage> {
         title: Text("SC05 マイページ画面"),
         backgroundColor: primaryColor,
       ),
-      body: new Center(
+      body: new SafeArea(
         child: new Column(
           children: <Widget>[
             Container(height: 20,),
@@ -41,33 +41,110 @@ class _MypageState extends State<Mypage> {
             ),
             Container(height: 20,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              //mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('$fname'+' '+'$lname',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0),
+                Container(width: 30,),
+                Container(
+                  width: 100,
+                  child : Text('F-Name',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.grey,width: 1,),
+                  ),
+                  width: 200,
+                  child: Text('$fname',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
                 ),
                 Icon(Icons.edit , color: Colors.grey,),
               ],
             ),
             Container(height: 20,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              //mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('email : '+'$email',
-                  style: TextStyle(fontSize: 20.0),
+                Container(width: 30,),
+                Container(
+                  width: 100,
+                  child : Text('L-Name',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.grey,width: 1,),
+                  ),
+                  width: 200,
+                  child: Text('$lname',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
                 ),
                 Icon(Icons.edit , color: Colors.grey,),
               ],
             ),
             Container(height: 20,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('$desc'),
+                Container(width: 30,),
+                Container(
+                  width: 100,
+                  child : Text('email',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.grey,width: 1,),
+                  ),
+                  width: 200,
+                  child:Text('$email',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ),
                 Icon(Icons.edit , color: Colors.grey,),
               ],
             ),
-//_buildBody(context),
+            Container(height: 20,),
+            Row(
+              children: <Widget>[
+                Container(width: 30,),
+                Container(
+                  width: 100,
+                  child : Text('desc',
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.grey,width: 1,),
+                  ),
+                  width: 200,
+                    child:Text('$desc',
+                        style: TextStyle(fontSize: 16.0),
+                    ),
+                  ),
+                Icon(Icons.edit , color: Colors.grey,),
+              ],
+            ),
+            Container(height: 40,),
+            RaisedButton(
+              child: const Text('Save'),
+              color: primaryColor,
+              textColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed("/Home");
+              },
+            ),
           ],
         ),
       ),

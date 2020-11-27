@@ -52,7 +52,7 @@ Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
       children: <Widget>[
         new GestureDetector(
           onTap: () {
-            _ev02(context, record.fname, record.lname, record.email, record.desc, record.image);
+            _ev02(context, record.fname, record.lname, record.email, record.desc, record.image,record.fy);
           },
           child:Container(
             width: 100,
@@ -74,9 +74,9 @@ Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
   );
 }
 
-void _ev02(BuildContext context, String fname,String lname,String email,String desc,String image) {
+void _ev02(BuildContext context, String fname,String lname,String email,String desc,String image,String fy) {
   Navigator.push(context, new MaterialPageRoute(builder: (context) =>
-  new Profile(fname: fname,lname:lname,email:email,desc:desc,image:image)
+  new Profile(fname: fname,lname:lname,email:email,desc:desc,image:image,fy:fy)
   ));
 }
 
@@ -86,6 +86,7 @@ class Record {
   final String email;
   final String desc;
   final String image;
+  final String fy;
   final DocumentReference reference;
 
   Record.fromMap(Map<String, dynamic> map, {this.reference})
@@ -95,7 +96,8 @@ class Record {
         lname = map['lname'],
         email = map['email'],
         desc = map['desc'],
-        image = map['image'];
+        image = map['image'],
+        fy = map['fy'];
 
   Record.fromSnapshot(DocumentSnapshot snapshot)
       : this.fromMap(snapshot.data, reference: snapshot.reference);

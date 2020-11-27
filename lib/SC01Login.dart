@@ -40,6 +40,11 @@ class _LoginState extends State<Login> {
                 new Center(
                   child: new RaisedButton(
                     child: const Text('Login'),
+                    color: widget.primaryColor,
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     onPressed: () {
                       // TODO: ログイン処理
                       // ホーム画面へ
